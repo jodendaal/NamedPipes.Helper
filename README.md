@@ -8,6 +8,14 @@ Also includes a helper to assist with creating single instance applications and 
 
 See example code [Here](https://github.com/jodendaal/NamedPipes.Helper/tree/main/Examples)
 
+# Getting started
+
+Install package [Nuget package](https://www.nuget.org/packages/NamedPipes.Helper)
+
+```powershell
+Install-Package NamedPipes.Helper
+```
+
 # Server
 Listen for messages on pipe named 'MyPipeName' with 2 threads
 
