@@ -19,7 +19,9 @@ namespace SingleInstanceWinForms
 
             },(mesage)=> {
                _form?.Invoke(()=> _form.ShowMessage(mesage));
-            }, args.Length> 0 ? $"Another instance started with args : {string.Join(" ", args)}" : "Another instance started with no args");
+            }, args.Length> 0 ?
+            $"Another instance started with args : {string.Join(" ", args)}" 
+            : "Another instance started with no args");
         }
     }
 }
