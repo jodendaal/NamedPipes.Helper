@@ -1,3 +1,6 @@
+[![Build](https://github.com/jodendaal/NamedPipes.Helper/actions/workflows/main.yml/badge.svg)](https://github.com/jodendaal/NamedPipes.Helper/actions/workflows/main.yml)
+[![NuGet Badge](https://buildstats.info/nuget/NamedPipes.Helper)](https://www.nuget.org/packages/NamedPipes.Helper)
+
 # Named Pipes Helper 
 Simple library to work with named pipes for IPC communication. 
 
