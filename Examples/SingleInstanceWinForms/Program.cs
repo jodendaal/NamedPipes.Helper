@@ -2,12 +2,13 @@ using NamedPipes.Helper;
 
 namespace SingleInstanceWinForms
 {
+    //testmessage://helloworld
     internal static class Program
     {
         static Form1? _form;
         
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             ApplicationConfiguration.Initialize();
 
@@ -18,7 +19,7 @@ namespace SingleInstanceWinForms
 
             },(mesage)=> {
                _form?.Invoke(()=> _form.ShowMessage(mesage));
-            },"Another instance started");
+            }, args.Length> 0 ? $"Another instance started with args : {string.Join(" ", args)}" : "Another instance started with no args");
         }
     }
 }

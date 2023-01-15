@@ -20,7 +20,7 @@ namespace NamedPipes.Helper
             {
                 Task.Factory.StartNew( async () =>
                 {
-                    using (var pipe = new NamedPipeStream(_pipeName, _onMessageRecieved))
+                    using (var pipe = new NamedPipeStream(_pipeName, _onMessageRecieved,noOfThreads))
                     {
                         _pipes.Add(pipe);
                         await pipe.ListenForConnectionsAsync(_cancellationTokenSource.Token);

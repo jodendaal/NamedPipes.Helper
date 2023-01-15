@@ -1,0 +1,8 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\testmessage]
+"URL Protocol"=""
+[HKEY_CLASSES_ROOT\testmessage\shell]
+[HKEY_CLASSES_ROOT\testmessage\shell\open]
+[HKEY_CLASSES_ROOT\testmessage\shell\open\command] 
+@="\"C:\\Users\\x\\source\\repos\\jodendaal\\NamedPipes.Helper\\Examples\\SingleInstanceWinForms\\bin\\Debug\\net6.0-windows\\SingleInstanceWinForms.exe\" \"%1\""

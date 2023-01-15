@@ -6,9 +6,9 @@ namespace NamedPipes.Helper
     {
         NamedPipeServerStream _pipeServer;
         Action<string> _onMessageRecieved;
-        public NamedPipeStream(string pipeName, Action<string> onMessageRecieved)
+        public NamedPipeStream(string pipeName, Action<string> onMessageRecieved,int maxNoOfInstance = 10)
         {
-            _pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 10,PipeTransmissionMode.Byte,PipeOptions.Asynchronous);
+            _pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, maxNoOfInstance, PipeTransmissionMode.Byte,PipeOptions.Asynchronous);
             _onMessageRecieved = onMessageRecieved;
         }
 
