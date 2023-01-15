@@ -1,9 +1,8 @@
-# NamedPipes Helper
+# Named Pipes Helper
 Simple library to work with named pipes for IPC communication. 
 
 Also includes a helper to assist with creating single instance applications and forwarding messages between them.
 
-# Examples
 
 # Server
 Listen for messages on pipe named 'MyPipeName' with 2 threads
@@ -43,14 +42,16 @@ internal static class Program
     {
         ApplicationConfiguration.Initialize();
 
-        App.SingleInstance("MyUniqueId", () =>
+        App.SingleInstance(nameof(SingleInstanceWinForms), () =>
         {
             _form = new Form1();
             Application.Run(_form);
 
         },(mesage)=> {
             _form?.Invoke(()=> _form.ShowMessage(mesage));
-        }, args.Length> 0 ? $"Another instance started with args : {string.Join(" ", args)}" : "Another instance started with no args");
+        }, args.Length> 0 ?
+        $"Another instance started with args : {string.Join(" ", args)}" 
+        : "Another instance started with no args");
     }
 }
 ```
