@@ -16,6 +16,8 @@ Also includes a helper to assist with creating single instance applications and 
     <PackageTags>IPC;Single Instance;Mutex;Named Pipes</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <IncludeSymbols>True</IncludeSymbols>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
