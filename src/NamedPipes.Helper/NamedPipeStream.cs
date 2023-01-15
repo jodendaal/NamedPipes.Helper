@@ -8,7 +8,7 @@ namespace NamedPipes.Helper
         Action<string> _onMessageRecieved;
         public NamedPipeStream(string pipeName, Action<string> onMessageRecieved)
         {
-            _pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 10);
+            _pipeServer = new NamedPipeServerStream(pipeName, PipeDirection.InOut, 10,PipeTransmissionMode.Byte,PipeOptions.Asynchronous);
             _onMessageRecieved = onMessageRecieved;
         }
 
@@ -17,23 +17,12 @@ namespace NamedPipes.Helper
             _pipeServer.Dispose();
         }
 
-        public void ListenForConnections()
+        public async Task ListenForConnectionsAsync(CancellationToken cancellationToken)
         {
-            try
-            {
-                _pipeServer.WaitForConnectionAsync();
-                StreamString ss = new StreamString(_pipeServer);
-                var message = ss.ReadString();
-                if (message != "DISPOSE_MESSAGE")
-                {
-                    _onMessageRecieved?.Invoke(message);
-                }
-            }
-            catch (IOException)
-            {
-                Dispose();
-            }
+            await _pipeServer.WaitForConnectionAsync(cancellationToken);
+            StreamString ss = new StreamString(_pipeServer);
+            var message = ss.ReadString();
+            _onMessageRecieved?.Invoke(message);
         }
-
     }
 }
